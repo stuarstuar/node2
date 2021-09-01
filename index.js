@@ -5,23 +5,25 @@ const fs = require('fs')
 const chalk = require('chalk')
 const { v4: uuidv4 } = require('uuid')
 const moment = require('moment')
+const _ = require('lodash')
 
 
-// console.log(chalk.white.bgRed.bold(('Hola Mundo!')))
+// console.log(chalk.white.bgRed.bold((consulta)))
 // console.log(uuidv4())
 
-const consulta = {
+/*const consulta = {
     fecha: moment().add(35000, 'days').format('MMM Do YYYY'),
     ID: uuidv4(),
     }
 
-console.log(consulta)
-    
+console.log(chalk.white.bgRed.bold((`${consulta}`)))*/
 
 
+/*const numeros = [true, 0, null, undefined, '', 22, false];
+console.log(_.partition(numeros, (n) => n == true || n == false))*/
 
-
-/*http
+/*
+http
     .createServer(function (req, res) {
        
         const params = url.parse(req.url, true).query
@@ -62,5 +64,20 @@ console.log(consulta)
         }
     })
     .listen(8080, () => console.log('Escuchando el puerto 8080'))
+
 */
 
+
+const axios = require("axios");
+
+axios
+    .get("https://rickandmortyapi.com/api/character/1")
+    .then((data) => {
+
+        const name = data.data.name;
+        console.log(name);
+    })
+
+    .catch((e) => {
+        console.log(e);
+    });
