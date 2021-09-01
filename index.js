@@ -4,9 +4,20 @@ const url = require('url')
 const fs = require('fs')
 const chalk = require('chalk')
 const { v4: uuidv4 } = require('uuid')
+const moment = require('moment')
 
-console.log(chalk.white.bgRed.bold(('Hola Mundo!')))
-console.log(uuidv4())
+
+// console.log(chalk.white.bgRed.bold(('Hola Mundo!')))
+// console.log(uuidv4())
+
+const consulta = {
+    fecha: moment().add(35000, 'days').format('MMM Do YYYY'),
+    ID: uuidv4(),
+    }
+
+console.log(consulta)
+    
+
 
 
 
